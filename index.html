@@ -657,6 +657,179 @@
   .hero-actions { animation: fadeUp 0.5s 0.3s ease both; }
   .hero-stats { animation: fadeUp 0.5s 0.4s ease both; }
 
+  /* CLIENTS STRIP */
+  .clients-strip {
+    background: var(--ink2);
+    padding: 2rem 0;
+    border-top: 1px solid rgba(201,168,76,0.08);
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    overflow: hidden;
+  }
+  .clients-strip-label {
+    text-align: center;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+    opacity: 0.6;
+  }
+  .marquee-wrapper { overflow: hidden; width: 100%; }
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    width: max-content;
+    will-change: transform;
+  }
+  .marquee-left { animation: marquee-scroll-left 32s linear infinite; }
+  @keyframes marquee-scroll-left {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .marquee-wrapper:hover .marquee-track { animation-play-state: paused; }
+  .client-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: rgba(245,240,232,0.4);
+    letter-spacing: 0.02em;
+    padding: 0.4rem 2rem;
+    border-left: 1px solid rgba(201,168,76,0.12);
+    transition: color 0.2s;
+  }
+  .client-item:hover { color: rgba(245,240,232,0.75); }
+  .client-sep { color: var(--gold); opacity: 0.5; font-size: 0.7rem; }
+  .client-type { color: var(--muted); font-weight: 300; font-size: 0.76rem; }
+
+  /* TESTIMONIALS */
+  .testimonials-section { background: var(--ink2); border-top: 1px solid rgba(201,168,76,0.08); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  .testimonial-card {
+    background: var(--ink);
+    border: 1px solid rgba(245,240,232,0.08);
+    border-radius: 4px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s;
+  }
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 2px;
+    background: rgba(201,168,76,0.2);
+  }
+  .testimonial-card-featured::before { background: var(--gold); }
+  .testimonial-card-featured {
+    border-color: rgba(201,168,76,0.2);
+    background: rgba(201,168,76,0.025);
+  }
+  .testimonial-card:hover { border-color: rgba(201,168,76,0.3); }
+  .t-stars { color: #fbbc04; font-size: 0.78rem; letter-spacing: 2px; margin-bottom: 1rem; }
+  .t-quote-mark {
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    color: var(--gold);
+    opacity: 0.2;
+    line-height: 1;
+    margin-bottom: -0.5rem;
+    font-style: italic;
+    user-select: none;
+  }
+  .t-quote {
+    font-size: 0.9rem;
+    color: rgba(245,240,232,0.8);
+    line-height: 1.75;
+    flex: 1;
+    margin-bottom: 1.75rem;
+    font-style: italic;
+  }
+  .t-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(245,240,232,0.06);
+  }
+  .t-author-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .t-author-name {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--cream);
+    font-family: var(--font-display);
+  }
+  .t-author-meta { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.03em; margin-top: 0.15rem; }
+
+  /* HOW IT WORKS */
+  .hiw-section { background: var(--ink); border-top: 1px solid rgba(201,168,76,0.08); }
+  .hiw-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+  }
+  .hiw-step {
+    padding: 2.5rem 2rem;
+    border-left: 1px solid rgba(201,168,76,0.12);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .hiw-step:first-child { border-left: none; padding-left: 0; }
+  .hiw-step-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--gold);
+    opacity: 0.18;
+    line-height: 1;
+    user-select: none;
+  }
+  .hiw-step-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.3;
+  }
+  .hiw-step-desc {
+    font-size: 0.86rem;
+    color: rgba(245,240,232,0.55);
+    line-height: 1.75;
+  }
+  .hiw-step-tag {
+    display: inline-block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px;
+    padding: 0.25rem 0.65rem;
+    align-self: flex-start;
+  }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 1.2rem 1.5rem; }
@@ -664,6 +837,11 @@
     section, .hero { padding: 4rem 1.5rem; }
     .trust-strip, footer { padding: 2rem 1.5rem; }
     .hero-stats { gap: 2rem; flex-wrap: wrap; }
+    .clients-strip { padding: 1.5rem 0; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .hiw-grid { grid-template-columns: 1fr; gap: 0; }
+    .hiw-step { border-left: none; border-bottom: 1px solid rgba(245,240,232,0.05); padding: 2rem 0; }
+    .hiw-step:last-child { border-bottom: none; }
   }
 </style>
 </head>
@@ -741,6 +919,30 @@
   </div>
 </div>
 
+<!-- CLIENTS STRIP -->
+<div class="clients-strip">
+  <div class="clients-strip-label lang-text" data-es="Confían en nosotros" data-en="Trusted by">Confían en nosotros</div>
+  <div class="marquee-wrapper">
+    <div class="marquee-track marquee-left" aria-hidden="true">
+      <span class="client-item">Casa Pepe <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Restaurante" data-en="Restaurant">Restaurante</span></span>
+      <span class="client-item">Urban Cuts <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Barbería" data-en="Barbershop">Barbería</span></span>
+      <span class="client-item">Clínica Serrano <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Fisioterapia" data-en="Physiotherapy">Fisioterapia</span></span>
+      <span class="client-item">The Corner Gym <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Gimnasio" data-en="Gym">Gimnasio</span></span>
+      <span class="client-item">Bodega Ramos <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Vinoteca" data-en="Wine bar">Vinoteca</span></span>
+      <span class="client-item">Estudio Nómada <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Coworking" data-en="Coworking">Coworking</span></span>
+      <span class="client-item">Hotel Mirlo <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Hotel boutique" data-en="Boutique hotel">Hotel boutique</span></span>
+      <span class="client-item">Manos de Oro <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Joyería" data-en="Jeweller">Joyería</span></span>
+      <span class="client-item">Casa Pepe <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Restaurante" data-en="Restaurant">Restaurante</span></span>
+      <span class="client-item">Urban Cuts <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Barbería" data-en="Barbershop">Barbería</span></span>
+      <span class="client-item">Clínica Serrano <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Fisioterapia" data-en="Physiotherapy">Fisioterapia</span></span>
+      <span class="client-item">The Corner Gym <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Gimnasio" data-en="Gym">Gimnasio</span></span>
+      <span class="client-item">Bodega Ramos <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Vinoteca" data-en="Wine bar">Vinoteca</span></span>
+      <span class="client-item">Estudio Nómada <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Coworking" data-en="Coworking">Coworking</span></span>
+      <span class="client-item">Hotel Mirlo <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Hotel boutique" data-en="Boutique hotel">Hotel boutique</span></span>
+      <span class="client-item">Manos de Oro <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Joyería" data-en="Jeweller">Joyería</span></span>
+    </div>
+  </div>
+</div>
 
 <!-- STATS SECTION -->
 <section class="stats-section">
@@ -892,6 +1094,112 @@
         </p>
       </div>
       <span class="business-tag lang-text" data-es="Gimnasio · Miami, Florida" data-en="Gym · Miami, Florida">Gimnasio · Miami, Florida</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS SECTION -->
+<section class="testimonials-section">
+  <div class="section-label lang-text" data-es="Lo que dicen nuestros clientes" data-en="What our clients say">Lo que dicen nuestros clientes</div>
+  <h2 class="section-title lang-text" data-es="Resultados reales,<br><em>negocios reales</em>" data-en="Real results,<br><em>real businesses</em>">Resultados reales,<br><em>negocios reales</em></h2>
+  <p class="section-subtitle lang-text" data-es="Propietarios que recuperaron el control de su reputación online" data-en="Business owners who took back control of their online reputation">Propietarios que recuperaron el control de su reputación online</p>
+
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <div class="t-stars">★★★★★</div>
+      <div class="t-quote-mark" aria-hidden="true">"</div>
+      <p class="t-quote lang-text"
+         data-es="Antes me daba vergüenza mirar mis reviews porque sabía que no respondía a ninguna. Ahora mi perfil de Google parece el de un negocio serio — porque alguien lo cuida."
+         data-en="I used to dread looking at my reviews because I knew I wasn't replying to any of them. Now my Google profile looks like a serious business — because someone is looking after it.">
+        Antes me daba vergüenza mirar mis reviews porque sabía que no respondía a ninguna. Ahora mi perfil de Google parece el de un negocio serio — porque alguien lo cuida.
+      </p>
+      <div class="t-author">
+        <div class="t-author-avatar" style="background:rgba(201,168,76,0.12);color:var(--gold);">CR</div>
+        <div class="t-author-info">
+          <div class="t-author-name">Carlos Ríos</div>
+          <div class="t-author-meta lang-text" data-es="Propietario · Bodega Ramos · Sevilla" data-en="Owner · Bodega Ramos · Seville">Propietario · Bodega Ramos · Sevilla</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card testimonial-card-featured">
+      <div class="t-stars">★★★★★</div>
+      <div class="t-quote-mark" aria-hidden="true">"</div>
+      <p class="t-quote lang-text"
+         data-es="Una review negativa me quitaba el sueño semanas. Ahora Replify responde antes de que yo me entere, de forma profesional y empática. Eso no tiene precio."
+         data-en="A negative review used to keep me up for weeks. Now Replify replies before I even see it, professionally and empathetically. That peace of mind is priceless.">
+        Una review negativa me quitaba el sueño semanas. Ahora Replify responde antes de que yo me entere, de forma profesional y empática. Eso no tiene precio.
+      </p>
+      <div class="t-author">
+        <div class="t-author-avatar" style="background:rgba(201,168,76,0.12);color:var(--gold);">SP</div>
+        <div class="t-author-info">
+          <div class="t-author-name">Sofía Palomino</div>
+          <div class="t-author-meta lang-text" data-es="Directora · Clínica Serrano · Madrid" data-en="Director · Clínica Serrano · Madrid">Directora · Clínica Serrano · Madrid</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="t-stars">★★★★★</div>
+      <div class="t-quote-mark" aria-hidden="true">"</div>
+      <p class="t-quote lang-text"
+         data-es="En tres meses de servicio, nuestra nota media subió de 4.1 a 4.6 en Google. Los clientes ven que respondemos y eso da confianza antes de que entren por la puerta."
+         data-en="In three months our average Google rating went from 4.1 to 4.6. Customers see that we respond and that builds trust before they even walk through the door.">
+        En tres meses de servicio, nuestra nota media subió de 4.1 a 4.6 en Google. Los clientes ven que respondemos y eso da confianza antes de que entren por la puerta.
+      </p>
+      <div class="t-author">
+        <div class="t-author-avatar" style="background:rgba(201,168,76,0.12);color:var(--gold);">MF</div>
+        <div class="t-author-info">
+          <div class="t-author-name">Marc Fontaine</div>
+          <div class="t-author-meta lang-text" data-es="Gerente · The Corner Gym · Lyon" data-en="Manager · The Corner Gym · Lyon">Gerente · The Corner Gym · Lyon</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="hiw-section">
+  <div class="section-label lang-text" data-es="El proceso" data-en="The process">El proceso</div>
+  <h2 class="section-title lang-text" data-es="Empiezas hoy.<br><em>Nosotros hacemos el resto.</em>" data-en="You start today.<br><em>We handle the rest.</em>">Empiezas hoy.<br><em>Nosotros hacemos el resto.</em></h2>
+  <p class="section-subtitle lang-text" data-es="Sin onboarding complicado. Sin acceso a tus cuentas. Listo en menos de 24h." data-en="No complicated onboarding. No account access. Live within 24 hours.">Sin onboarding complicado. Sin acceso a tus cuentas. Listo en menos de 24h.</p>
+
+  <div class="hiw-grid">
+
+    <div class="hiw-step">
+      <div class="hiw-step-number">01</div>
+      <div class="hiw-step-title lang-text" data-es="Cuéntanos tu negocio" data-en="Tell us about your business">Cuéntanos tu negocio</div>
+      <p class="hiw-step-desc lang-text"
+         data-es="Rellenas un breve formulario: nombre del negocio, sector, tono que quieres transmitir y el idioma de tus clientes. Diez minutos, una sola vez."
+         data-en="You fill in a short form: business name, sector, the tone you want to convey and your customers' language. Ten minutes, one time only.">
+        Rellenas un breve formulario: nombre del negocio, sector, tono que quieres transmitir y el idioma de tus clientes. Diez minutos, una sola vez.
+      </p>
+      <div class="hiw-step-tag lang-text" data-es="Sin credenciales" data-en="No credentials needed">Sin credenciales</div>
+    </div>
+
+    <div class="hiw-step">
+      <div class="hiw-step-number">02</div>
+      <div class="hiw-step-title lang-text" data-es="Nos envías tus reviews" data-en="Send us your reviews">Nos envías tus reviews</div>
+      <p class="hiw-step-desc lang-text"
+         data-es="Cada vez que recibes una nueva reseña, nos la reenvías por WhatsApp o email. Nada más. Nosotros redactamos la respuesta perfecta para ese review específico."
+         data-en="Every time you get a new review, you forward it to us via WhatsApp or email. That's it. We craft the perfect reply for that specific review.">
+        Cada vez que recibes una nueva reseña, nos la reenvías por WhatsApp o email. Nada más. Nosotros redactamos la respuesta perfecta para ese review específico.
+      </p>
+      <div class="hiw-step-tag lang-text" data-es="En menos de 24h" data-en="Within 24 hours">En menos de 24h</div>
+    </div>
+
+    <div class="hiw-step">
+      <div class="hiw-step-number">03</div>
+      <div class="hiw-step-title lang-text" data-es="Tú publicas, tu reputación crece" data-en="You publish, your reputation grows">Tú publicas, tu reputación crece</div>
+      <p class="hiw-step-desc lang-text"
+         data-es="Recibes la respuesta lista para copiar y pegar en Google. Un clic y listo. Sin esperas, sin preocupaciones, sin dejar una sola reseña sin contestar."
+         data-en="You receive the reply ready to copy and paste into Google. One click and done. No delays, no stress, not a single review left unanswered.">
+        Recibes la respuesta lista para copiar y pegar en Google. Un clic y listo. Sin esperas, sin preocupaciones, sin dejar una sola reseña sin contestar.
+      </p>
+      <div class="hiw-step-tag lang-text" data-es="Copia, pega, publicado" data-en="Copy, paste, published">Copia, pega, publicado</div>
     </div>
 
   </div>
