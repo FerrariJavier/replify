@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0d0d0d"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="none" stroke="#c9a84c" stroke-opacity="0.18" stroke-width="1.5"/>
+  <text x="600" y="230" font-family="system-ui,-apple-system,sans-serif" font-size="96" font-weight="700" fill="#f5f0e8" text-anchor="middle" letter-spacing="-2">replify<tspan fill="#c9a84c">.ink</tspan></text>
+  <text x="600" y="315" font-family="system-ui,-apple-system,sans-serif" font-size="44" fill="#FBBC04" text-anchor="middle" letter-spacing="4">★★★★★</text>
+  <text x="600" y="390" font-family="system-ui,-apple-system,sans-serif" font-size="30" fill="#f5f0e8" fill-opacity="0.55" text-anchor="middle" letter-spacing="0.5">Reply. As if your reputation depends on it.</text>
+  <text x="600" y="450" font-family="system-ui,-apple-system,sans-serif" font-size="24" fill="#c9a84c" fill-opacity="0.7" text-anchor="middle" letter-spacing="3" font-weight="600">GOOGLE REVIEW MANAGEMENT · 24H</text>
+</svg>
