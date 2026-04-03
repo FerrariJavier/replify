@@ -515,7 +515,7 @@
     margin-bottom: 1.25rem;
     padding-bottom: 1.25rem;
     border-bottom: 1px solid rgba(var(--text-rgb),0.06);
-    min-height: 5.5rem;
+    flex: 1;
   }
 
   .response-block {
@@ -982,6 +982,8 @@
   }
 
   /* HAMBURGER */
+  .nav-close { display: none; }
+
   .hamburger {
     display: none;
     background: none;
@@ -1047,16 +1049,33 @@
       transform: translateX(0);
       pointer-events: auto;
     }
-    .nav-links a:not(.nav-cta) { order: 1; font-size: 1rem; }
-    .nav-links .nav-cta {
-      order: 2;
-      width: auto;
-      text-align: left;
-      padding: 0.45rem 1.1rem;
-      font-size: 0.88rem;
-    }
+    .nav-links .nav-cta { order: 1; width: auto; text-align: left; padding: 0.45rem 1.1rem; font-size: 0.88rem; }
+    .nav-links a:not(.nav-cta) { order: 2; font-size: 1rem; }
     .nav-links .lang-toggle { order: 3; }
     .nav-links .theme-btn { order: 4; }
+    .nav-close {
+      display: flex;
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: none;
+      border: none;
+      color: var(--cream);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0.25rem;
+      opacity: 0.6;
+    }
+    .nav-close:hover { opacity: 1; }
+    .nav-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 97;
+      background: rgba(0,0,0,0.4);
+    }
+    nav.nav-open ~ .nav-backdrop { display: block; }
 
     section, .hero { padding: 3.5rem var(--pad); }
     .trust-strip { gap: 1.25rem; padding: 1.5rem var(--pad); flex-direction: column; align-items: flex-start; }
@@ -1082,6 +1101,7 @@
     <span></span><span></span><span></span>
   </button>
   <div class="nav-links">
+    <button class="nav-close" onclick="toggleNav()" aria-label="Close menu">✕</button>
     <div class="lang-toggle">
       <button class="lang-btn" onclick="setLang('es')">ES</button>
       <button class="lang-btn active" onclick="setLang('en')">EN</button>
@@ -1095,6 +1115,7 @@
     <a href="mailto:hola@replify.ink" class="nav-cta lang-text" data-es="Empezar" data-en="Get started">Get started</a>
   </div>
 </nav>
+<div class="nav-backdrop" onclick="toggleNav()"></div>
 
 <!-- HERO -->
 <section class="hero">
