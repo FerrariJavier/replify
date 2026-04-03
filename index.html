@@ -142,6 +142,7 @@
     max-width: 960px;
     margin-bottom: 1.75rem;
     animation: fadeUp 0.5s 0.1s ease both;
+    text-align: center;
   }
 
   .hero h1 {
@@ -174,9 +175,9 @@
 
   /* STAR BADGE */
   .hero-star-badge {
-    position: absolute;
-    top: 0.1em;
-    right: -115px;
+    position: static;
+    display: inline-block;
+    margin: 1.5rem auto 0;
     background: var(--ink2);
     border: 1px solid rgba(201,168,76,0.3);
     border-radius: 14px;
@@ -226,8 +227,8 @@
   }
 
   @keyframes starFloat {
-    0%, 100% { transform: rotate(-2deg) translateY(0); }
-    50% { transform: rotate(-2deg) translateY(-8px); }
+    0%, 100% { transform: rotate(-4deg) translateY(0); }
+    50% { transform: rotate(-4deg) translateY(-8px); }
   }
 
   @keyframes starGlow {
