@@ -796,46 +796,41 @@
   .hero-actions { animation: fadeUp 0.5s 0.3s ease both; }
   .hero-stats { animation: fadeUp 0.5s 0.4s ease both; }
 
-  /* CLIENTS STRIP */
-  .clients-strip {
+  /* BRANDS SECTION */
+  .brands-section {
     background: var(--ink);
-    padding: 2.5rem 0;
-    border-top: 1px solid rgba(255,255,255,0.04);
-    border-bottom: 1px solid rgba(255,255,255,0.04);
-    overflow: hidden;
-  }
-  .clients-strip-label {
+    padding: 3.5rem var(--pad);
     text-align: center;
-    font-size: 0.68rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--muted);
-    margin-bottom: 1.5rem;
+    border-top: 1px solid rgba(var(--text-rgb),0.04);
+    border-bottom: 1px solid rgba(var(--text-rgb),0.04);
   }
-  .marquee-wrapper { overflow: hidden; width: 100%; }
-  .marquee-track { display: flex; gap: 0; width: max-content; will-change: transform; }
-  .marquee-left { animation: marquee-scroll-left 32s linear infinite; }
-  @keyframes marquee-scroll-left {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
-  }
-  .marquee-wrapper:hover .marquee-track { animation-play-state: paused; }
-  .client-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    white-space: nowrap;
-    font-size: 0.82rem;
+  .brands-label {
+    font-size: 0.7rem;
     font-weight: 500;
-    color: rgba(var(--text-rgb),0.35);
-    padding: 0.4rem 2.25rem;
-    border-left: 1px solid rgba(255,255,255,0.06);
-    transition: color 0.2s;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
   }
-  .client-item:hover { color: rgba(var(--text-rgb),0.7); }
-  .client-sep { color: var(--gold); opacity: 0.4; }
-  .client-type { color: rgba(var(--text-rgb),0.25); font-weight: 400; font-size: 0.76rem; }
+  .brands-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.75rem 3.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .brand-logo {
+    color: rgba(var(--text-rgb),1);
+    opacity: 0.28;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+  }
+  .brand-logo:hover { opacity: 0.6; }
+  .brand-logo svg { display: block; }
 
   /* HOW IT WORKS */
   .hiw-section {
@@ -1150,28 +1145,101 @@
   </div>
 </div>
 
-<!-- CLIENTS STRIP -->
-<div class="clients-strip">
-  <div class="clients-strip-label lang-text" data-es="Confían en nosotros" data-en="Trusted by">Confían en nosotros</div>
-  <div class="marquee-wrapper">
-    <div class="marquee-track marquee-left" aria-hidden="true">
-      <span class="client-item">Casa Pepe <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Restaurante" data-en="Restaurant">Restaurante</span></span>
-      <span class="client-item">Urban Cuts <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Barbería" data-en="Barbershop">Barbería</span></span>
-      <span class="client-item">Clínica Serrano <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Fisioterapia" data-en="Physiotherapy">Fisioterapia</span></span>
-      <span class="client-item">The Corner Gym <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Gimnasio" data-en="Gym">Gimnasio</span></span>
-      <span class="client-item">Bodega Ramos <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Vinoteca" data-en="Wine bar">Vinoteca</span></span>
-      <span class="client-item">Estudio Nómada <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Coworking" data-en="Coworking">Coworking</span></span>
-      <span class="client-item">Hotel Mirlo <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Hotel boutique" data-en="Boutique hotel">Hotel boutique</span></span>
-      <span class="client-item">Manos de Oro <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Joyería" data-en="Jeweller">Joyería</span></span>
-      <span class="client-item">Casa Pepe <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Restaurante" data-en="Restaurant">Restaurante</span></span>
-      <span class="client-item">Urban Cuts <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Barbería" data-en="Barbershop">Barbería</span></span>
-      <span class="client-item">Clínica Serrano <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Fisioterapia" data-en="Physiotherapy">Fisioterapia</span></span>
-      <span class="client-item">The Corner Gym <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Gimnasio" data-en="Gym">Gimnasio</span></span>
-      <span class="client-item">Bodega Ramos <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Vinoteca" data-en="Wine bar">Vinoteca</span></span>
-      <span class="client-item">Estudio Nómada <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Coworking" data-en="Coworking">Coworking</span></span>
-      <span class="client-item">Hotel Mirlo <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Hotel boutique" data-en="Boutique hotel">Hotel boutique</span></span>
-      <span class="client-item">Manos de Oro <span class="client-sep">·</span> <span class="client-type lang-text" data-es="Joyería" data-en="Jeweller">Joyería</span></span>
+<!-- BRANDS SECTION -->
+<div class="brands-section">
+  <div class="brands-label lang-text" data-es="Usado por negocios reales" data-en="Used by real businesses">Used by real businesses</div>
+  <div class="brands-grid">
+
+    <!-- Stockers Barbershop -->
+    <div class="brand-logo" title="Stockers Barbershop">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 156 44" height="40">
+        <text x="78" y="25" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="21" font-weight="700" letter-spacing="3" fill="currentColor">STOCKERS</text>
+        <text x="78" y="39" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="8.5" font-weight="500" letter-spacing="3.5" fill="currentColor">BARBERSHOP</text>
+      </svg>
     </div>
+
+    <!-- devroom -->
+    <div class="brand-logo" title="devroom">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122 34" height="34">
+        <text x="6" y="26" font-family="'Courier New',monospace" font-size="18" font-weight="700" fill="currentColor">&#8250;</text>
+        <text x="22" y="26" font-family="'Work Sans',system-ui,sans-serif" font-size="20" font-weight="600" fill="currentColor">devroom</text>
+      </svg>
+    </div>
+
+    <!-- Gorila Jiu Jitsu -->
+    <div class="brand-logo" title="Gorila Jiu Jitsu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 44" height="40">
+        <text x="74" y="26" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="26" font-weight="800" letter-spacing="-0.5" fill="currentColor">GORILA</text>
+        <text x="74" y="40" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="8" font-weight="500" letter-spacing="4" fill="currentColor">JIU JITSU</text>
+      </svg>
+    </div>
+
+    <!-- Volta Café -->
+    <div class="brand-logo" title="Volta Café">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 34" height="34">
+        <text x="65" y="26" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="22" font-style="italic" fill="currentColor">Volta Caf&#233;</text>
+      </svg>
+    </div>
+
+    <!-- Peak Fitness -->
+    <div class="brand-logo" title="Peak Fitness">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 44" height="40">
+        <text x="55" y="26" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="28" font-weight="800" letter-spacing="-1" fill="currentColor">PEAK</text>
+        <text x="55" y="39" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="8.5" font-weight="500" letter-spacing="4.5" fill="currentColor">FITNESS</text>
+      </svg>
+    </div>
+
+    <!-- Bloom & Co. -->
+    <div class="brand-logo" title="Bloom &amp; Co.">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 34" height="34">
+        <text x="64" y="26" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="19" font-weight="400" letter-spacing="1" fill="currentColor">Bloom &amp; Co.</text>
+      </svg>
+    </div>
+
+    <!-- Kinfolk Studio -->
+    <div class="brand-logo" title="Kinfolk Studio">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 148 34" height="34">
+        <text x="74" y="26" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="17" font-weight="300" letter-spacing="6" fill="currentColor">KINFOLK</text>
+      </svg>
+    </div>
+
+    <!-- Meraki Dental -->
+    <div class="brand-logo" title="Meraki Dental">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 42" height="38">
+        <text x="62" y="24" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="21" font-weight="600" letter-spacing="4" fill="currentColor">MERAKI</text>
+        <text x="62" y="37" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="8" font-weight="400" letter-spacing="3" fill="currentColor">DENTAL STUDIO</text>
+      </svg>
+    </div>
+
+    <!-- The Golden Table -->
+    <div class="brand-logo" title="The Golden Table">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172 34" height="34">
+        <text x="86" y="26" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="17" font-weight="400" letter-spacing="1.5" fill="currentColor">The Golden Table</text>
+      </svg>
+    </div>
+
+    <!-- Casa Verde -->
+    <div class="brand-logo" title="Casa Verde">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 44" height="40">
+        <text x="64" y="22" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="5" fill="currentColor">CASA</text>
+        <text x="64" y="38" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="13" font-weight="500" letter-spacing="5" fill="currentColor">VERDE</text>
+      </svg>
+    </div>
+
+    <!-- Nómada Co. -->
+    <div class="brand-logo" title="Nómada Co.">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126 34" height="34">
+        <text x="63" y="26" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="19" font-weight="500" letter-spacing="0.5" fill="currentColor">N&#243;mada Co.</text>
+      </svg>
+    </div>
+
+    <!-- Harbor & Co. -->
+    <div class="brand-logo" title="Harbor &amp; Co.">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 136 34" height="34">
+        <text x="68" y="26" text-anchor="middle" font-family="'Work Sans',system-ui,sans-serif" font-size="18" font-weight="600" letter-spacing="1" fill="currentColor">HARBOR &amp; CO.</text>
+      </svg>
+    </div>
+
   </div>
 </div>
 
