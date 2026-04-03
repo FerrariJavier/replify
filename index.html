@@ -235,9 +235,6 @@
     box-shadow: 0 8px 28px rgba(0,0,0,0.1), 0 0 0 1px rgba(201,168,76,0.2);
   }
 
-  @media (max-width: 699px) {
-    .hero-star-badge { display: none; }
-  }
 
   .hero-sub {
     font-size: 1.15rem;
@@ -953,17 +950,82 @@
   body.light .hiw-section { border-top-color: rgba(0,0,0,0.06); }
   body.light .pricing-section { border-top-color: rgba(0,0,0,0.06); }
 
+  /* HAMBURGER */
+  .hamburger {
+    display: none;
+    background: none;
+    border: 1px solid rgba(var(--text-rgb),0.15);
+    border-radius: 8px;
+    padding: 0.4rem 0.5rem;
+    cursor: pointer;
+    color: var(--cream);
+    flex-direction: column;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .hamburger span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--cream);
+    border-radius: 2px;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  nav.nav-open .hamburger span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  nav.nav-open .hamburger span:nth-child(2) { opacity: 0; }
+  nav.nav-open .hamburger span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
   /* RESPONSIVE */
   @media (max-width: 768px) {
     :root { --pad: 1.25rem; }
-    .nav-links { gap: 1.25rem; }
-    section, .hero { padding: 4rem var(--pad); }
-    .trust-strip { gap: 1.5rem; padding: 1.75rem var(--pad); }
-    footer { padding: 2rem var(--pad); }
-    .hero-stats { gap: 2rem; }
+
+    /* Hamburger nav */
+    .hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.18);
+      flex-direction: column;
+      align-items: center;
+      padding: 1.5rem 1.25rem;
+      gap: 1.25rem;
+      z-index: 99;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    nav.nav-open .nav-links { display: flex; }
+    .nav-links .lang-toggle { order: 2; }
+    .nav-links .theme-btn { order: 3; }
+    .nav-links a:not(.nav-cta) { order: 4; font-size: 1rem; }
+    .nav-links .nav-cta { order: 1; width: 100%; text-align: center; padding: 0.75rem; font-size: 0.95rem; }
+
+    section, .hero { padding: 3.5rem var(--pad); }
+    .trust-strip { gap: 1.25rem; padding: 1.5rem var(--pad); flex-direction: column; align-items: flex-start; }
+    footer { padding: 2rem var(--pad); flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .hero-stats { gap: 1.5rem; }
     .clients-strip { padding: 1.75rem 0; }
     .hiw-grid { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr; }
+    .examples-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: 1fr; }
+
+    /* Badge: show on mobile, static position below headline */
+    .hero-star-badge {
+      position: static;
+      display: inline-block;
+      margin: 1.25rem auto 0;
+      transform: none;
+      animation: starFloat 3.5s ease-in-out infinite, starGlow 3.5s ease-in-out infinite;
+      width: 90px;
+    }
+    .hero-title-wrap {
+      display: block;
+      text-align: center;
+    }
   }
 </style>
 </head>
@@ -972,6 +1034,9 @@
 <!-- NAV -->
 <nav>
   <div class="logo">replify<span>.ink</span></div>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <div class="nav-links">
     <div class="lang-toggle">
       <button class="lang-btn" onclick="setLang('es')">ES</button>
@@ -993,7 +1058,7 @@
   <div class="hero-title-wrap">
     <h1 class="lang-text" data-es="Responde.<br><em>Como si tu reputación dependiera de ello.</em><br><span class='hero-aside'>(porque así es)</span>" data-en="Reply.<br><em>As if your reputation depends on it.</em><br><span class='hero-aside'>(because it does)</span>">Reply.<br><em>As if your reputation depends on it.</em><br><span class="hero-aside">(because it does)</span></h1>
     <div class="hero-star-badge" aria-hidden="true">
-      <div class="badge-score">4.8</div>
+      <div class="badge-score">4.9</div>
       <div class="badge-stars">
         <span class="badge-star">★</span>
         <span class="badge-star">★</span>
@@ -1417,6 +1482,16 @@
   function toggleTheme() {
     document.body.classList.toggle('light');
   }
+
+  function toggleNav() {
+    document.querySelector('nav').classList.toggle('nav-open');
+  }
+
+  document.querySelectorAll('.nav-links a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.querySelector('nav').classList.remove('nav-open');
+    });
+  });
 
   setLang('en');
 
