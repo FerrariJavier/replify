@@ -143,6 +143,95 @@
     background-clip: text;
   }
 
+  .hero-aside {
+    display: block;
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(var(--text-rgb), 0.4);
+    letter-spacing: 0;
+    margin-top: 0.5rem;
+    -webkit-text-fill-color: rgba(var(--text-rgb), 0.4);
+    background: none;
+  }
+
+  /* STAR BADGE */
+  .hero-star-badge {
+    position: absolute;
+    right: max(3rem, calc((100% - 1100px) / 2 + 1rem));
+    top: 50%;
+    transform: translateY(-55%);
+    background: var(--ink2);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 20px;
+    padding: 1.5rem 1.75rem;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(201,168,76,0.06);
+    animation: starFloat 3.5s ease-in-out infinite, starGlow 3.5s ease-in-out infinite, fadeUp 0.6s 0.55s ease both;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .badge-score {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+  }
+
+  .badge-stars {
+    display: flex;
+    gap: 0.15rem;
+    justify-content: center;
+    margin-bottom: 0.6rem;
+    font-size: 1.1rem;
+  }
+
+  .badge-star {
+    color: var(--gold);
+    animation: starPulse 2.5s ease-in-out infinite;
+    display: inline-block;
+  }
+  .badge-star:nth-child(1) { animation-delay: 0s; }
+  .badge-star:nth-child(2) { animation-delay: 0.18s; }
+  .badge-star:nth-child(3) { animation-delay: 0.36s; }
+  .badge-star:nth-child(4) { animation-delay: 0.54s; }
+  .badge-star:nth-child(5) { animation-delay: 0.72s; }
+
+  .badge-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(var(--text-rgb), 0.4);
+  }
+
+  @keyframes starFloat {
+    0%, 100% { transform: translateY(-55%) rotate(-2deg); }
+    50% { transform: translateY(calc(-55% - 12px)) rotate(-2deg); }
+  }
+
+  @keyframes starGlow {
+    0%, 100% { box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 20px rgba(201,168,76,0.15); }
+    50% { box-shadow: 0 12px 40px rgba(0,0,0,0.5), 0 0 40px rgba(201,168,76,0.35); }
+  }
+
+  @keyframes starPulse {
+    0%, 60%, 100% { opacity: 0.3; transform: scale(0.9); }
+    30% { opacity: 1; transform: scale(1.15); }
+  }
+
+  body.light .hero-star-badge {
+    background: #fff;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.1), 0 0 0 1px rgba(201,168,76,0.2);
+  }
+
+  @media (max-width: 899px) {
+    .hero-star-badge { display: none; }
+  }
+
   .hero-sub {
     font-size: 1.15rem;
     color: rgba(var(--text-rgb),0.6);
@@ -892,7 +981,19 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-label lang-text" data-es="Gestión de reputación digital" data-en="Digital reputation management">Gestión de reputación digital</div>
-  <h1 class="lang-text" data-es="Tus clientes hablan.<br><em>Nosotros respondemos.</em>" data-en="Your customers talk.<br><em>We respond.</em>">Tus clientes hablan.<br><em>Nosotros respondemos.</em></h1>
+  <h1 class="lang-text" data-es="Responde.<br><em>Como si tu reputación dependiera de ello.</em><br><span class='hero-aside'>(porque así es)</span>" data-en="Reply.<br><em>As if your reputation depends on it.</em><br><span class='hero-aside'>(because it does)</span>">Reply.<br><em>As if your reputation depends on it.</em><br><span class="hero-aside">(because it does)</span></h1>
+
+  <div class="hero-star-badge" aria-hidden="true">
+    <div class="badge-score">4.8</div>
+    <div class="badge-stars">
+      <span class="badge-star">★</span>
+      <span class="badge-star">★</span>
+      <span class="badge-star">★</span>
+      <span class="badge-star">★</span>
+      <span class="badge-star">★</span>
+    </div>
+    <div class="badge-label">Google rating</div>
+  </div>
   <p class="hero-sub lang-text"
      data-es="Respondemos tus reviews de Google de forma profesional, personalizada y en menos de 24h — para que tu negocio transmita confianza y no pierdas más clientes por silencio."
      data-en="We respond to your Google reviews professionally, personally, and within 24 hours — so your business builds trust and you never lose a customer to silence again.">
